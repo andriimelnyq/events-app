@@ -1,0 +1,39 @@
+@import "../../styles/main.scss";
+
+.main-header {
+  background-color: $grey-dark;
+  height: 80px;
+  display: flex;
+  align-items: center;
+
+  &__content {
+    color: $grey-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 30px;
+
+    &--selected {
+      color: $green-main;
+      font-size: 30px;
+    }
+
+    @include hover(color $green-main);
+  }
+
+  &__list {
+    list-style: none;
+    font-size: 20px;
+  }
+
+  &__item {
+    @include hover(color $green-main, transform scale(1.1));
+
+    &--selected {
+      color: $green-main;
+    }
+  }
+}

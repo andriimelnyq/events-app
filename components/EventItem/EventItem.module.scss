@@ -1,0 +1,13 @@
+.event-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__img {
+    object-fit: cover;
+  }
+
+  &__button {
+    padding: 10px;
+  }
+}

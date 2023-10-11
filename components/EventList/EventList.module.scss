@@ -1,0 +1,10 @@
+.event-list {
+  display: flex;
+  justify-content: center;
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}

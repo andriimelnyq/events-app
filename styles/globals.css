@@ -87,12 +87,8 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #e6e6e6;
+  font-family: ui-monospace, sans-serif;
 }
 
 a {
@@ -104,4 +100,13 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.container {
+  padding: 0 40px;
+  width: 100%;
+}
+
+.page {
+  padding: 60px 40px;
 }
