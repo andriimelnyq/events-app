@@ -1,16 +1,15 @@
 @import "../../styles/main.scss";
 
 .new-comment {
+  padding: 30px;
+  border: 2px solid $green-main;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #e6f7ef;
   gap: 20px;
   width: 600px;
-  padding: 30px;
-  border: 2px solid $green-main;
-  border-radius: 5px;
-  color: $green-main;
 
   &__bottom {
     width: 100%;
