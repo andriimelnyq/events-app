@@ -30,6 +30,7 @@ export const Filters = () => {
           value={selectedYear}
           label="Year"
           onChange={(e) => setSelectedYear(e.target.value)}
+          required
         >
           <MenuItem value={2022}>2022</MenuItem>
           <MenuItem value={2023}>2023</MenuItem>
@@ -43,6 +44,7 @@ export const Filters = () => {
           value={selectedMonth}
           label="Month"
           onChange={(e) => setSelectedMonth(e.target.value)}
+          required
         >
           <MenuItem value={1}>January</MenuItem>
           <MenuItem value={2}>Fabruary</MenuItem>

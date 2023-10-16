@@ -1,9 +1,10 @@
 import { postNewsletterEmail } from "@/helpers/api";
-import { Button, FormControl, Input, InputLabel } from "@mui/material";
+import { Button, FormControl, TextField, Typography } from "@mui/material";
 import { FormEvent, useContext, useState } from "react";
 import { NotificationContext } from "@/store/NotificationContext";
 import { NotificationText } from "@/types/NotificationText";
 import { PendingContext } from "@/store/PendingContext";
+import styles from "./NewsletterRegistration.module.scss";
 
 export const NewsletterRegistration = () => {
   const [email, setEmail] = useState("");
@@ -35,19 +36,26 @@ export const NewsletterRegistration = () => {
   };
 
   return (
-    <section>
-      <h2>Sign up to stay updated!</h2>
-      <form onSubmit={registrationHander}>
+    <section className={styles["news-letter-registration"]}>
+      <Typography variant="h5" gutterBottom>
+        Sign up to stay updated!
+      </Typography>
+      <form
+        onSubmit={registrationHander}
+        className={styles["news-letter-registration__form"]}
+      >
         <FormControl>
-          <InputLabel htmlFor="my-input">Your email</InputLabel>
-          <Input
+          <TextField
+            variant="outlined"
             value={email}
-            id="my-input"
+            label="Your email"
             type="email"
             onChange={(e) => onChangeInput(e.target.value)}
           />
         </FormControl>
-        <Button type="submit">Register</Button>
+        <Button type="submit" disabled={!email} variant="contained">
+          Register
+        </Button>
       </form>
     </section>
   );

@@ -7,6 +7,7 @@ import { CommentType } from "../../types/CommentType";
 import { NotificationContext } from "../../store/NotificationContext";
 import { NotificationText } from "../../types/NotificationText";
 import { PendingContext } from "../../store/PendingContext";
+import styles from "./Comments.module.scss";
 
 type Props = {
   eventId: string;
@@ -71,11 +72,13 @@ export const Commments: React.FC<Props> = ({ eventId }) => {
   }, [eventId, setNotification, setPending]);
 
   return (
-    <section>
-      <Button onClick={toggleCommentsHandler}>
+    <section className={styles["comments"]}>
+      <Button onClick={toggleCommentsHandler} variant="contained">
         {showComments ? "Hide" : "Show"} Comments
       </Button>
+
       {showComments && <NewComment onAddComment={addCommentHandler} />}
+
       {showComments && comments && <CommentList comments={comments} />}
     </section>
   );

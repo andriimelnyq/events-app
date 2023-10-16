@@ -1,0 +1,41 @@
+@import "../../styles/main.scss";
+
+.event-detail {
+  color: $grey-dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  &__image {
+    border: 1px solid $green-main;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  &__main {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: $grey-dark;
+    width: 600px;
+    height: 300px;
+    border-radius: 5px;
+    color: $green-main;
+    border: 2px solid $green-main;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__info-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}

@@ -1,5 +1,6 @@
 import { Button, FormControl, TextField } from "@mui/material";
 import React, { useState } from "react";
+import styles from "./NewComment.module.scss";
 
 type Props = {
   onAddComment: (commentData: {
@@ -10,7 +11,6 @@ type Props = {
 };
 
 export const NewComment: React.FC<Props> = ({ onAddComment }) => {
-  const [isInvalid, setIsInvalid] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [text, setText] = useState("");
@@ -18,55 +18,60 @@ export const NewComment: React.FC<Props> = ({ onAddComment }) => {
   const sendCommentHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
-      !email ||
-      email.trim() === "" ||
-      !email.includes("@") ||
-      !name ||
-      name.trim() === "" ||
-      !text ||
-      text.trim() === ""
-    ) {
-      setIsInvalid(true);
-      return;
-    }
-
     onAddComment({
       email,
       name,
       text,
     });
+
+    setEmail("");
+    setName("");
+    setText("");
   };
 
   return (
     <form onSubmit={sendCommentHandler}>
-      <FormControl>
-        <TextField
-          value={email}
-          id="text"
-          type="email"
-          label="Email"
-          variant="outlined"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <FormControl className={styles["new-comment"]}>
+        <div className={styles["new-comment__top"]}>
+          <TextField
+            value={email}
+            id="text"
+            type="email"
+            label="Email"
+            variant="outlined"
+            onChange={(e) => setEmail(e.target.value)}
+            className={styles["new-comment__input"]}
+            required
+          />
 
-        <TextField
-          value={name}
-          id="text"
-          label="Name"
-          variant="outlined"
-          onChange={(e) => setName(e.target.value)}
-        />
+          <TextField
+            value={name}
+            id="text"
+            label="Name"
+            variant="outlined"
+            onChange={(e) => setName(e.target.value)}
+            required
+            className={styles["new-comment__input"]}
+          />
+        </div>
 
-        <TextField
-          id="text"
-          label="Comment"
-          variant="outlined"
-          onChange={(e) => setText(e.target.value)}
-        />
+        <div className={styles["new-comment__bottom"]}>
+          <TextField
+            id="text"
+            label="Comment"
+            variant="outlined"
+            onChange={(e) => setText(e.target.value)}
+            required
+            multiline
+            className={styles["new-comment__comment"]}
+            rows={5}
+          />
+        </div>
+
+        <Button type="submit" variant="contained">
+          Submit
+        </Button>
       </FormControl>
-      {isInvalid && <p>Please enter a valid email address and comment!</p>}
-      <Button type="submit">Submit</Button>
     </form>
   );
 };

@@ -1,0 +1,16 @@
+@import "../../styles/main.scss";
+
+.news-letter-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $grey-dark;
+  gap: 30px;
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}

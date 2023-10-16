@@ -51,8 +51,8 @@ export const EventItem: React.FC<Props> = ({ event }) => {
         </CardContent>
       </div>
 
-      <CardActions>
-        <Button size="small" color="primary" sx={{ p: 0 }}>
+      <CardActions className={classes["event-item__actions"]}>
+        <Button size="small" color="primary" sx={{ p: 0 }} variant="contained">
           <Link
             href={`/events/${id}`}
             className={classes["event-item__button"]}
