@@ -54,8 +54,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
     try {
       const documents = await getAllDocuments(client, "comments", { _id: -1 });
+      const documentsById = documents.filter(
+        (document) => document.eventId === eventId,
+      );
 
-      res.status(200).json({ comments: documents });
+      res.status(200).json({ comments: documentsById });
     } catch (error) {
       res.status(422).json({ message: "Getting comments failed" });
     }
